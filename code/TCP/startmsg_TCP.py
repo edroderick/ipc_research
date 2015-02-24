@@ -6,8 +6,8 @@ import random
 import serial
 
 #initialize UDP Socket
-#SEND_IP = "192.168.1.245"	#static IP of raspberry pi
-SEND_IP = "127.0.0.1"		#for testing purposes on same computer
+SEND_IP = "192.168.1.245"	#static IP of raspberry pi
+#SEND_IP = "127.0.0.1"		#for testing purposes on same computer
 SEND_PORT = 5005
 
 BUFFER_SIZE = 1024
@@ -16,14 +16,14 @@ lastID = 0
 send = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # TCP
 send.connect((SEND_IP, SEND_PORT))   
 
-ser = serial.Serial('/dev/ttyACM1', 9600, timeout=2) #USB Serial for response
+ser = serial.Serial('/dev/ttyACM0', 9600, timeout=2) #USB Serial for response
 ser.flushInput()
 ser.flushOutput()
 
 #send test message, resend until correct id received
 testID = 'X'
 while(lastID != testID):
-	send.send(testID, (SEND_IP, SEND_PORT))
+	send.send(testID)
 	lastID = ser.read(1)
 
 #print header for output file
@@ -37,7 +37,7 @@ for i in range(1,10001):
 		uID = str(random.randint(0,9))
 
 	tick = time.time()
-	send.send(uID, (SEND_IP, SEND_PORT)) #TCP
+	send.send(uID) #TCP
 	msg = ser.read(1)
 	tock = time.time()
 	if (msg == uID):
@@ -49,4 +49,4 @@ for i in range(1,10001):
 	print i, '\t', tick, '\t', tock, '\t', uID, '\t', dT	
 
 	time.sleep(.01)
-'''
+
