@@ -1,7 +1,7 @@
 import socket
 
-#REC_IP = "192.168.1.245"
-REC_IP = "127.0.0.1"
+REC_IP = "192.168.1.245"
+#REC_IP = "127.0.0.1"
 SEND_IP = "127.0.0.1"
 REC_PORT = 5005
 SEND_PORT = 5006
