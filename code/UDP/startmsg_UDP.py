@@ -6,8 +6,8 @@ import random
 import serial
 
 #initialize UDP Socket
-#SEND_IP = "192.168.1.245"	#static IP of raspberry pi
-SEND_IP = "127.0.0.1"		#for testing purposes on same computer
+SEND_IP = "192.168.1.245"	#static IP of raspberry pi
+#SEND_IP = "127.0.0.1"		#for testing purposes on same computer
 SEND_PORT = 5005
 
 BUFFER_SIZE = 1024
@@ -17,7 +17,7 @@ lastID = 0
 send = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
 #send = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # TCP
 
-ser = serial.Serial('/dev/ttyACM1', 9600, timeout=2) #USB Serial for response
+ser = serial.Serial('/dev/ttyACM0', 9600, timeout=2) #USB Serial for response
 ser.flushInput()
 ser.flushOutput()
 
