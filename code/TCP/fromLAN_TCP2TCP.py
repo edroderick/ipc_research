@@ -6,7 +6,8 @@ REC_PORT = 5005
 SEND_IP = "127.0.0.1"
 SEND_PORT = 5006
 
-send = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) #UDP SEND
+send = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #TCP SEND
+send.connect((SEND_IP, SEND_PORT))
 
 receive = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #TCP Receive
 receive.bind((REC_IP, REC_PORT))    
@@ -17,6 +18,6 @@ print 'Connected with ' + addr[0] + ':' + str(addr[1])
 
 while True:
     data = conn.recv(1024)
-    send.sendto(data,(SEND_IP, SEND_PORT))
+    send.send(data)
     print data
 
