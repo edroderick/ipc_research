@@ -1,0 +1,12 @@
+import random
+import serial
+
+uID = 5
+
+ser = serial.Serial('/dev/ttyACM0', 9600, timeout=2) #USB Serial for response
+
+a = ser.read(1)
+if (a != uID):
+	print 'missed', '\t', uID
+
+print 'done'
