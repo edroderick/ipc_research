@@ -4,6 +4,7 @@ import socket
 import time
 import random
 import serial
+from datetime import datetime
 
 #initialize UDP Socket
 SEND_IP = "192.168.1.245"	#static IP of raspberry pi
@@ -37,12 +38,12 @@ for i in range(1,10001):
 	while(uID == lastID):
 		uID = str(random.randint(0,9))
 
-	tick = time.time()
+	tick = datetime.now()
 	send.sendto(uID, (SEND_IP, SEND_PORT)) #UDP/TCP
 	msg = ser.read(1)
-	tock = time.time()
+	tock = datetime.now()
 	if (msg == uID):
-		dT = tock-tick
+		dT = tock.microsecond-tick.microsecond
 	else:
 		dT = 'missed'
 	
