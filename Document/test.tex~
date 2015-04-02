@@ -1,0 +1,3 @@
+\section{TEST PROCEDURES}
+
+In order to evaluate each of the discussed IPC methods, a test system was developed that incorporated a laptop, 100mbps wired network connection, a raspberry pi SBC, and an OpenCM9.0 microcontroller board designed for command and control of dynamixel brand smart servomotors. This system incorporates communication links over ethernet, serial, and USB. For consitentcy the serial link was set to the same baud rate (9600) as the USB link. \figure{} below shows the overall system diagram of the test setup. 

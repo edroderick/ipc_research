@@ -52,7 +52,7 @@ keywords={control engineering computing;humanoid robots;software architecture;so
 doi={10.1109/TePRA.2013.6556374}, 
 ISSN={2325-0526},}
 
-@INPROCEEDINGS{UDPTCP, 
+@INPROCEEDINGS{4957484, 
 author={Dong Kwon Cho and Sang Hun Chun and Jeong Gyun Ahn and Yong Sik Kwon and Jong Hoon Eom and Young Il Kim}, 
 booktitle={Robot Communication and Coordination, 2009. ROBOCOMM '09. Second International Conference on}, 
 title={A UDP-based protocol for mobile robot control over wireless Internet}, 
