@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\title{First Document}
+\date{2015-03-04}
+\author{Edward Matthew Roderick}
+
+\begin{document}
+
+ \maketitle
+ \pagenumbering{gobble}
+ \newpage
+ \pagenumbering{roman}
+
+ \section{Section}
+ 
+ Hello World!
+
+ \subsection{Subsection}
+ 
+ Document Stucture
+
+ \subsubsection{Subsubsection}
+
+ Subsubsection test
+
+ \section{Another Section}
+
+ Text
+
+ \paragraph{Paragraph}
+
+ More text
+
+ \subparagraph{}
+
+ even more text
+
+\end{document}

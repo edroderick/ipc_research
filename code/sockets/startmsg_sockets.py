@@ -17,7 +17,6 @@ lastID = 0
 #UDP
 send = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-
 #TCP
 #send = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 #send.connect(SEND_IP, SEND_PORT))
