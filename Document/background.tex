@@ -7,8 +7,15 @@ POSIX IPC offers three types of messages: streams, datagrams and shared memory. 
 %\begin{figure}
 %	\caption{HUBO ACH Flow Chart}
 %	\centering
-%		\includegraphics[width=0.5\textwidth]{achflow]
+%		\includegraphics[width=0.5\textwidth]{./images/achflow.png}
 %\end{figure}
+
+\begin{figure}[thpb]
+ \centering
+ \includegraphics[width=1.0\columnwidth]{./images/achflow.png}
+  \caption{HUBO ACH Flow Chart}
+  \label{fig:archr-sys-diagram}
+\end{figure}
 
 The ACH system allows the system to create multiple data channels to send data between processes. Each channel consists of two circular buffers: a data buffer and an index buffer. The two buffers are written in a channel specific POSIX shared memory file. By storing the data buffers in shared memory, the synchronization issue can be solved once for the entire channel via a mutex, allowing each reader process to poll the channel or wait for new data to be posted. This also prevents starvation and allows for priority inheritance between the real time processes.
 
