@@ -45,8 +45,8 @@ for i in range(1,10001):
 		uID = str(random.randint(0,9))
 
 	tick = datetime.now()
-	send.sendto(uID, (SEND_IP, SEND_PORT)) #UDP send
-	#send.send(uID) #TCP send
+	send.sendto(uID, (SEND_IP, SEND_PORT)) #UDP
+	#send.send(uID) #TCP
 	msg = ser.read(1)
 	tock = datetime.now()
 	if (msg == uID):

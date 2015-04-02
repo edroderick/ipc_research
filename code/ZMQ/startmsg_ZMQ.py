@@ -5,6 +5,7 @@ import time
 import random
 import serial
 from datetime import datetime
+import zmq
 
 #Set IP addresses
 SEND_IP = "192.168.1.245"	#static IP of raspberry pi
@@ -15,8 +16,12 @@ BUFFER_SIZE = 1024
 lastID = 0
 
 #UDP
-send = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#send = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
+#ZMQ
+context = zmq.Context()
+socket = context.socket(zmq.PAIR)
+socket.connect('tcp://%s:%s' % (SEND_IP, SEND_PORT))
 
 #TCP
 #send = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -30,8 +35,9 @@ ser.flushOutput()
 #send test message, resend until correct id received
 testID = 'X'
 while(lastID != testID):
-	send.sendto(testID, (SEND_IP, SEND_PORT)) #UDP send
+	#send.sendto(testID, (SEND_IP, SEND_PORT)) #UDP send
 	#send.send(testID) #TCP send
+	socket.send(testID) #ZMQ send
 	lastID = ser.read(1)
 
 #print header for output file
@@ -45,9 +51,10 @@ for i in range(1,10001):
 		uID = str(random.randint(0,9))
 
 	tick = datetime.now()
-	send.sendto(uID, (SEND_IP, SEND_PORT)) #UDP send
+	#send.sendto(uID, (SEND_IP, SEND_PORT)) #UDP send
 	#send.send(uID) #TCP send
-	msg = ser.read(1)
+	socket.send(uID) #ZMQ send
+        msg = ser.read(1)
 	tock = datetime.now()
 	if (msg == uID):
 		dT = tock-tick

@@ -1,0 +1,42 @@
+@INPROCEEDINGS{REALTIMEACH, 
+author={Dantam, N. and Stilman, M.}, 
+booktitle={Humanoid Robots (Humanoids), 2012 12th IEEE-RAS International Conference on}, 
+title={Robust and efficient communication for real-time multi-process robot software}, 
+year={2012}, 
+month={Nov}, 
+pages={316-322}, 
+keywords={control engineering computing;humanoid robots;multiprocessing systems;public domain software;real-time systems;robot programming;Ach;IPC mechanism;complex robotic systems;efficient communication;head-of-line blocking problem;humanoid robot Golem Krang;humanoid robots;interprocess communication mechanism;library;open source permissive license;physical robotic systems;real-time multiprocess robot software;robust communication;source code;Arrays;Indexes;Process control;Real-time systems;Robots;Robustness;Software}, 
+doi={10.1109/HUMANOIDS.2012.6651538}, 
+ISSN={2164-0572},}
+
+@ARTICLE{EMBEDDEDROS, 
+author={Bouchier, P.}, 
+journal={Robotics Automation Magazine, IEEE}, 
+title={Embedded ROS [ROS Topics]}, 
+year={2013}, 
+month={June}, 
+volume={20}, 
+number={2}, 
+pages={17-19}, 
+keywords={embedded systems;operating systems (computers);robot programming;embedded ROS;high-level function;lower-level subsystem;robot design}, 
+doi={10.1109/MRA.2013.2255491}, 
+ISSN={1070-9932},}
+
+@techreport{MULTITHREADZMQ,
+title = {Multithreaded Magic with ØMQ},
+author = {Hintjens, P and Sustrik, M},
+year = {2010},
+institution = {iMatrix Corporation},
+month = {09},
+Date-Added = {2010-09-01},
+Date-Modified = {2010-09-01}
+}
+
+@techreport{ZMQTHEORY,
+title = {ØMQ: The Theoretical Foundation},
+author = {Sústrik, M},
+year = {2011},
+institution = {250bpm},
+month = {09},
+Date-Added = {2011-07-05},
+}
