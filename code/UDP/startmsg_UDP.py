@@ -19,7 +19,7 @@ send = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 
 #TCP
-#send = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+#send = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #send.connect(SEND_IP, SEND_PORT))
 
 #Initialize USB serial from OpenCM
@@ -35,7 +35,7 @@ while(lastID != testID):
 	lastID = ser.read(1)
 
 #print header for output file
-print 'Run', '\t', 'T Sent', '\t', 'T Received', '\t', 'Message ID', '\t', 'dT'	
+print 'Run', '\t', 'T Sent', '\t', 'T Received', '\t', 'Message ID', '\t', 'dT'
 
 for i in range(1,10001):
 
@@ -53,8 +53,8 @@ for i in range(1,10001):
 		dT = tock-tick
 	else:
 		dT = 'missed'
-	
+
 	lastID = uID
-	print i, '\t', tick, '\t', tock, '\t', uID, '\t', dT	
+	print i, '\t', tick, '\t', tock, '\t', uID, '\t', dT
 
 	time.sleep(.01)
