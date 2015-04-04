@@ -1,0 +1,7 @@
+import ach
+import ipc_include as ipc
+
+CONTROLLER_REF_NAME  = 'ipc-chan'
+chan = ach.Channel(ipc.CONTROLLER_REF_NAME)
+chan.flush()
+message = ipc.CONTROLLER_REF()
