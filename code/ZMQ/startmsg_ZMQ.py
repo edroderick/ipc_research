@@ -28,7 +28,7 @@ socket.connect('tcp://%s:%s' % (SEND_IP, SEND_PORT))
 #send.connect(SEND_IP, SEND_PORT))
 
 #Initialize USB serial from OpenCM
-ser = serial.Serial('/dev/ttyACM0', 9600, timeout=2) #USB Serial for response
+ser = serial.Serial('/dev/ttyACM1', 9600, timeout=2) #USB Serial for response
 ser.flushInput()
 ser.flushOutput()
 

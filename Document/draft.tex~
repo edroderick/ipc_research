@@ -41,7 +41,6 @@
 \input{abstract.tex}
 \input{intro.tex}
 \input{background.tex}
-\input{test.tex}
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
