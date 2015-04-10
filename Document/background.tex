@@ -2,29 +2,26 @@
 
 \subsection{ACH (Shared Memory)}
 
-Real time robotics applications require that the IPC system to non head of line blocking. 
+Shared memory offers the fastest read/write speeds for communication between processes within a single computer. As part of the POSIX\footnote{POSIX: Portable operating system interface. A set of standards for maintaining compatability between opearting systems.} IPC library, shared memory is available to virtually every robotic system. Real time robotics require that the IPC system be able to prioiritize the most recent data over data received sequentially (non head of line blocking). Basic shared memory provides this by overwriting variables but is susceptable to synchronization issues and all previous data is now lost\cite{REALTIMEACH}. 
 
+ACH builds on the basic shared memory and provides a message bus (channel) between mutliple writers and multiple readers. An ACH channel consists of a data buffer and an index buffer that are stored in a shared memory file. The channel provides synchronized access via a mutex and a condition variable. This allows for priority inhereitence and prevents starvation\cite{REALTIMEACH}. The ACH library is open source and formally verified \cite{REALTIMEACH} making it suitable for widespread use.
 
- it is important to ensure that the IPC system is non head of line blocking as the most recent sensor data will take priority over previously acquired data. Streams suffers from head of line blocking and is thus not a desirable method for robotics. Datagrams utilize a data buffer that when full, loses any new data. This is particularly problematic as the robot would routinely lose important data. Shared memory is the fastest method of the POSIX suite and will provide the most current data by overwriting any old information stored. Unfortunately this method is susceptible to synchronization issues and further considerations must be taken in code which would reduce its reusability and complexity. Furthermore, for a realtime system, none of the POSIX IPC methods allow any methods of priority inheritance which is critical to allow high priority systems to access data first.
+ACH channels provide high levels of flexibilty in communication and programming. They can be configured to read the most recent data or in order it was received. A read command can block until data is received or it can poll the channel as needed. Figure \ref{fig:ach diagram} below is an example of an ACH based control system for the Hubo robot. 
 
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/achflow.png}
-  \caption{HUBO ACH Flow Chart}
-  \label{fig:archr-sys-diagram}
-\end{figure}
+  \caption{HUBO ACH Communication Flow Chart}
+  \label{fig:ach diagram}
+\end{figure} 
 
-The ACH system allows the system to create multiple data channels to send data between processes. Each channel consists of two circular buffers: a data buffer and an index buffer. The two buffers are written in a channel specific POSIX shared memory file. By storing the data buffers in shared memory, the synchronization issue can be solved once for the entire channel via a mutex, allowing each reader process to poll the channel or wait for new data to be posted. This also prevents starvation and allows for priority inheritance between the real time processes.
-
-A case study is presented \cite{REALTIMEACH} in which a balancing bipedal robot was developed with many different processes and ACH channels. The study details how the multiprocess approach allows for high priority processes (like balancing in this case) to stay alive in the event that other processes fail (ie computer vision). This approach also allowed processes to be distributed between smaller microcontrollers to drive servomotors to higher powered computers to process computer vision. For the 
-
-SPIN simulations were run to benchmark the ACH system and it was shown that performance is identical to POSIX for single readers and receivers and the majority of the latency is a product of context switches. 
-
-Due to ACH relying on shared memory, it is not a system that can be used on its own if the system requires networked communications. This can be resolved by using a sockets (TCP/UDP) communication method to send data across the network to an ACH channel\cite{ACHHUBO}. This method allows for CPU intensive processes to be offloaded from the robot to a local high performance computer, maintains the non head of line blocking nature of the ACH channel, and all other processes running on the robot now have access to the most recent data sent without processing any messages sent before it.
+ACH provides network based communications by incorporating TCP and UDP messages. Each system running the ACH network daemon (ACHD) can write directly to shared memory resources connected to the network\cite{ACHHUBO}. This allows for CPU intensive processes to be offloaded from the robot to a local high performance computer. 
 
 \subsection{Sockets: TCP and UDP}
 
 Sockets provides interprocess communication over a network via the TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). The implementations evaluated for this paper are the client/server  architecture, which provides one to one communication between processes. Both TCP and UDP operate over a network interface and are bound to a specific port number and IP address. Wireless networks and wireless connected devices have become ubiquitous in modern society. With the growing number of single board computers with full ethernet/wireless network interfaces, it is possible to quickly and cheaply set up a robotic system that can interact with sensors, high power computers, and external controllers. Sockets is a well seasoned IPC and can be found as part of the POSIX library, allowing for many different operating systems and programming languages to communicate with no extra software and little programming effort. With modern newtork routers offering gigabit connections, sockets can provide a method of fast communication between processes distrubted across a network. 
+
+Streams suffers from head of line blocking and is thus not a desirable method for robotics. Datagrams utilize a data buffer that when full, loses any new data. This is particularly problematic as the robot would routinely lose important data. 
 
 \subsubsection{TCP}
 
