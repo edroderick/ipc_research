@@ -2,13 +2,14 @@
 
 \subsection{ACH (Shared Memory)}
 
-POSIX IPC offers three types of messages: streams, datagrams and shared memory. For the real time robotics application, it is important to ensure that the IPC system is non head of line blocking as the most recent sensor data will take priority over previously acquired data. Streams suffers from head of line blocking and is thus not a desirable method for robotics. Datagrams utilize a data buffer that when full, loses any new data. This is particularly problematic as the robot would routinely lose important data. Shared memory is the fastest method of the POSIX suite and will provide the most current data by overwriting any old information stored. Unfortunately this method is susceptible to synchronization issues and further considerations must be taken in code which would reduce its reusability and complexity. Furthermore, for a realtime system, none of the POSIX IPC methods allow any methods of priority inheritance which is critical to allow high priority systems to access data first.
+For  real time robotics applications, it is important to ensure that the IPC system is non head of line blocking as the most recent sensor data will take priority over previously acquired data. Streams suffers from head of line blocking and is thus not a desirable method for robotics. Datagrams utilize a data buffer that when full, loses any new data. This is particularly problematic as the robot would routinely lose important data. Shared memory is the fastest method of the POSIX suite and will provide the most current data by overwriting any old information stored. Unfortunately this method is susceptible to synchronization issues and further considerations must be taken in code which would reduce its reusability and complexity. Furthermore, for a realtime system, none of the POSIX IPC methods allow any methods of priority inheritance which is critical to allow high priority systems to access data first.
 
-%\begin{figure}
-%	\caption{HUBO ACH Flow Chart}
-%	\centering
-%		\includegraphics[width=0.5\textwidth]{achflow]
-%\end{figure}
+\begin{figure}[thpb]
+ \centering
+ \includegraphics[width=1.0\columnwidth]{./images/achflow.png}
+  \caption{HUBO ACH Flow Chart}
+  \label{fig:archr-sys-diagram}
+\end{figure}
 
 The ACH system allows the system to create multiple data channels to send data between processes. Each channel consists of two circular buffers: a data buffer and an index buffer. The two buffers are written in a channel specific POSIX shared memory file. By storing the data buffers in shared memory, the synchronization issue can be solved once for the entire channel via a mutex, allowing each reader process to poll the channel or wait for new data to be posted. This also prevents starvation and allows for priority inheritance between the real time processes.
 
