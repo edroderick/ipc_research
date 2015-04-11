@@ -13,5 +13,5 @@ while True:
 	[status, framesize] = chan.get(message, wait=True, last=True)	
 	#print message.msg
 	ser.write(message.msg)
-	aprint 'write ', message.msg
+	print 'write ', message.msg
 

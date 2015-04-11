@@ -16,8 +16,8 @@ void setup() {
 
 void loop() {
  
-  while(Serial3.available() == 0){}  //block until serial available
-  //while(SerialUSB.available() == 0){}  //block until serial available
+  while(Serial3.available() == 0){}  //block untill serial available
+  //while(SerialUSB.available() == 0){}  //block untill serial available
   if (Serial3.available() > 0){
   //if (SerialUSB.available() > 0){
     while(Serial3.available() > 0) {
