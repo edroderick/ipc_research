@@ -4,18 +4,18 @@
 
 Shared memory offers the fastest read/write speeds for communication between processes within a single computer. As part of the POSIX\footnote{POSIX: Portable operating system interface. A set of standards for maintaining compatability between opearting systems.} IPC library, shared memory is available to virtually every robotic system. Real time robotics require that the IPC system be able to prioiritize the most recent data over data received sequentially (non head of line blocking). Basic shared memory provides this by overwriting variables but is susceptable to synchronization issues and all previous data is now lost\cite{REALTIMEACH}. 
 
-ACH\footnote{Available https://github.com/golems/ach} at  builds on the basic shared memory and provides a message bus (channel) between mutliple writers and multiple readers. An ACH channel consists of a data buffer and an index buffer that are stored in a shared memory file. The channel provides synchronized access via a mutex and a condition variable. This allows for priority inhereitence and prevents starvation\cite{REALTIMEACH}. The ACH library is open source and formally verified\cite{REALTIMEACH} making it suitable for widespread use.
+ACH\footnote{Available at https://github.com/golems/ach} builds on basic shared memory and provides a message bus (channel) between mutliple writers and multiple readers. An ACH channel consists of a data buffer and an index buffer that are stored in a shared memory file. The channel provides synchronized access via a mutex and a condition variable. This allows for priority inhereitence and prevents starvation\cite{REALTIMEACH}. The ACH library is open source and formally verified\cite{REALTIMEACH} making it suitable for widespread use.
 
 ACH channels provide high levels of flexibilty in communication and programming. They can be configured to read the most recent data or in order it was received. A read command can block until data is received or it can poll the channel as needed. Figure \ref{fig:ach diagram} below is an example of an ACH based control system for the Hubo robot. 
 
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/achflow.png}
-  \caption{HUBO ACH Communication Flow Chart}
+  \caption{ACH Communication Flow Chart for HUBO Robot}
   \label{fig:ach diagram}
 \end{figure} 
 
-ACH provides LAN based communications by incorporating sockets based messages. Each system running the ACH network daemon (ACHD) can write directly to shared memory resources connected to the network\cite{ACHHUBO}. This allows for CPU intensive processes to be offloaded from the robot to a local high performance computer. 
+ACH provides LAN based communications by utilzing sockets messages to transport channel data. Each system running the ACH network daemon (ACHD) can write directly to remote shared memory resources connected to the network\cite{ACHHUBO}. This allows for CPU intensive processes to be offloaded from the robot to a local high performance computer. 
 
 \subsection{Sockets: TCP and UDP}
 
@@ -38,7 +38,7 @@ ZeroMQ\footnote{Available at www.zeromq.org} (ØMQ) is a messaging system that e
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/zmqtopology.png}
-  \caption{ZeroMQ example topologies}
+  \caption{ZeroMQ Example Topologies}
   \label{fig:zmq top}
 \end{figure} 
 
@@ -48,12 +48,12 @@ Only one messaging pattern is allowed for a topology and they cannot be intercon
 
 \subsection{ROS}
 
-ROS\footnote{Available at www.ros.org} (Robot Operating System) is a flexible framwork for developing robotic systems. Offering more features than an IPC, ROS utilizes TCP as its core transport mechanism for communication between processes. In addition to the IPC, ROS offers a wide library of prebuilt tools and a vast user base from which to draw on modular solutions that can plug into any ROS system. This reduces development time and amount of low level code that needs to be written for each piece of hardware. Figure \ref{fig:ROS Network Diagram}
+ROS\footnote{Available at www.ros.org} (Robot Operating System) is a flexible framwork for developing robotic systems. Offering more features than an IPC, ROS utilizes TCP as its core transport mechanism for communication between processes. In addition to the IPC, ROS offers a wide library of prebuilt tools and a vast user base from which to draw on modular solutions that can plug into any ROS system. This reduces development time and amount of low level code that needs to be written for each piece of hardware. Figure \ref{fig:ROS Network Diagram} below shows an example ROS network diagram.
 
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/rosnet.png}
-  \caption{ZeroMQ example topologies}
+  \caption{ROS Example Network Diagram}
   \label{fig:ROS Network Diagram}
 \end{figure} 
 
