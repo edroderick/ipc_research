@@ -12,7 +12,7 @@ After completion of all testing, no IPCs dropped any messages during transit. Th
 \cline{2-6}
 & \multicolumn{5}{c|}{Network: Link 1}\\
 \hline
-\multicolumn{1}{|c|}{Item} & UDP & TCP & ACH & ZMQ & ROS\\
+\multicolumn{1}{|c|}{Item} & UDP & TCP & ZMQ &ACH & ROS\\
 \hline
 \multicolumn{1}{|c|}{Average (ms)} & 3.834 & 3.829 & ZMQ & N/A & ROS\\
 \hline
@@ -50,7 +50,7 @@ After completion of all testing, no IPCs dropped any messages during transit. Th
 
 \subsection{UDP Results (Control)}
 
-The control of this experiment utilized UDP messages over the network and UDP messages sent to the loopback address on the Pi. No missed messages occured despite UDP being the least reliable IPC method tested. Consistent results occured with a standard deviation of 1.441 ms and the average transit was 3.834 ms. This was the second fastest configuration tested. Figure \ref{UDP results} below shows a summary of collected data with outliers removed for clarity.
+The control of this experiment utilized UDP messages over the network and UDP messages sent to the loopback address on the Pi. No missed messages occured despite UDP being the least reliable IPC method tested. Consistent results occured with a standard deviation of 1.441 ms and the average transit was 3.834 ms. This was the second fastest configuration tested. Figure \ref{fig:UDP results} below shows a summary of collected data with outliers removed for clarity.
 
 \begin{figure}[thpb]
  \centering
@@ -61,7 +61,7 @@ The control of this experiment utilized UDP messages over the network and UDP me
 
 \subsection{TCP Results}
 
-TCP was tested in both Link 1 and Link 2 configurations with UDP as the second link. No missed messages were recorded as expected for TCP. For the network link, TCP performed with negligable difference to UDP. This would suggest that for small data packets and reliable network connections the additional delay incurred by TCP's response message is negligable. Figure \ref{fig:TCP l1 results} below shows a summary of collected data with outliers removed for clarity.
+TCP was tested in both Link 1 and Link 2 configurations with UDP as the second link. No missed messages were recorded as expected for TCP. For the network link, TCP performed with negligable difference to UDP. This would suggest that for small data packets and reliable network connections the additional delay incurred by TCP's response message is negligable. Figure \ref{fig:TCP L1 results} below shows a summary of collected data with outliers removed for clarity.
 
 \begin{figure}[thpb]
  \centering
@@ -70,7 +70,7 @@ TCP was tested in both Link 1 and Link 2 configurations with UDP as the second l
   \label{fig:TCP L1 results}
 \end{figure} 
 
-Differentiation arises when TCP is utilized for the Link 2 loopback transport. Additional latency was recorded for an averate transit time of 4.774 ms and a standard deviation of  1.160 ms. This suggests the additional TCP overhead becomes an issue for embedded systems and would not be a valid candiate for an internal IPC. Table \ref{fig:TCP l2 results} below summarizes the Link 2 test results.
+Differentiation arises when TCP is utilized for the Link 2 loopback transport. Additional latency was recorded for an averate transit time of 4.774 ms and a standard deviation of  1.160 ms. This suggests the additional TCP overhead becomes an issue for embedded systems and would not be a valid candiate for an internal IPC. Figure \ref{fig:TCP L2 results} below summarizes the Link 2 test results.
 
 \begin{figure}[thpb]
  \centering
@@ -81,12 +81,6 @@ Differentiation arises when TCP is utilized for the Link 2 loopback transport. A
 
 \subsection{ZMQ Results}
 
-placeholder for zmq results
-placeholder for zmq results
-placeholder for zmq results
-placeholder for zmq results
-placeholder for zmq results
-placeholder for zmq results
 placeholder for zmq results
 
 \subsection{ACH Results}
