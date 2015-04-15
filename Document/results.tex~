@@ -14,13 +14,13 @@ After completion of all testing, no IPCs dropped any messages during transit. Th
 \hline
 \multicolumn{1}{|c|}{Item} & UDP & TCP & ZMQ &ACH & ROS\\
 \hline
-\multicolumn{1}{|c|}{Average (ms)} & 3.834 & 3.829 & ZMQ & N/A & ROS\\
+\multicolumn{1}{|c|}{Average (ms)} & 3.834 & 3.829 & 5.285 & N/A & ROS\\
 \hline
-\multicolumn{1}{|c|}{Min (ms)} & 3.359 & 3.399 & ZMQ & N/A & ROS\\
+\multicolumn{1}{|c|}{Min (ms)} & 3.359 & 3.399 & 3.943 & N/A & ROS\\
 \hline
-\multicolumn{1}{|c|}{Max (ms)} & 95.063 & 42.006 & ZMQ & N/A & ROS\\
+\multicolumn{1}{|c|}{Max (ms)} & 95.063 & 42.006 & 92.746 & N/A & ROS\\
 \hline
-\multicolumn{1}{|c|}{Std Deviation (ms)} & 1.441 & 0.768 & ZMQ & N/A & ROS\\
+\multicolumn{1}{|c|}{Std Deviation (ms)} & 1.441 & 0.768 & 3.639 & N/A & ROS\\
 \hline
 \end{tabular}
 \end{center}
@@ -36,13 +36,13 @@ After completion of all testing, no IPCs dropped any messages during transit. Th
 \hline
 \multicolumn{1}{|c|}{Item} & UDP & TCP & ZMQ & ACH  & ROS\\
 \hline
-\multicolumn{1}{|c|}{Average (ms)} & 3.834 & 4.774 & ZMQ & 3.752 & ROS\\
+\multicolumn{1}{|c|}{Average (ms)} & 3.834 & 4.774 & 5.000 & 3.752 & ROS\\
 \hline
-\multicolumn{1}{|c|}{Min (ms)} & 3.359 & 4.079 & ZMQ & 3.219 & ROS\\
+\multicolumn{1}{|c|}{Min (ms)} & 3.359 & 4.079 & 3.853 & 3.219 & ROS\\
 \hline
-\multicolumn{1}{|c|}{Max (ms)} & 95.063 & 43.974 & ZMQ & 73.533 & ROS\\
+\multicolumn{1}{|c|}{Max (ms)} & 95.063 & 43.974 & 161.833 & 73.533 & ROS\\
 \hline
-\multicolumn{1}{|c|}{Std Deviation (ms)} & 1.441 & 1.160 & ZMQ & 1.705 & ROS\\
+\multicolumn{1}{|c|}{Std Deviation (ms)} & 1.441 & 1.160 & 3.171 & 1.705 & ROS\\
 \hline
 \end{tabular}
 \end{center} 
@@ -81,7 +81,23 @@ Differentiation arises when TCP is utilized for the Link 2 loopback transport. A
 
 \subsection{ZMQ Results}
 
-placeholder for zmq results
+ZeroMQ performed the slowest in both links of all the pure IPCs tested. It is expected that ZMQ performs slower than TCP as it includes additional packet information around a standard TCP message. This test only determines the speed of a single process communicating in client/server pair and does not evaluate potential gains when implemented in a multifaceted topology. ZMQ was tested in both Link 1 and Link 2 configurations and results can be found below in Figure \ref{fig:ZMQ L1 Results} (Link 1) and Figure \ref{fig:ZMQ L2 Results} (Link 2) below.
+
+\begin{figure}[thpb]
+ \centering
+ \includegraphics[width=1.0\columnwidth]{./images/zmq2udp.png}
+  \caption{ZMQ Link 2 Test Results}  
+  \label{fig:ZMQ L1 results}
+\end{figure} 
+
+\begin{figure}[thpb]
+ \centering
+ \includegraphics[width=1.0\columnwidth]{./images/udp2zmq.png}
+  \caption{ZMQ Link 2 Test Results}  
+  \label{fig:ZMQ L2 results}
+\end{figure} 
+
+The data shows slower performance in both link configurations than UDP, TCP, or ACH. If ZMQ would be implemented for all links in a system, the delay would be compounded with each step.
 
 \subsection{ACH Results}
 

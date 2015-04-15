@@ -33,7 +33,7 @@ Date-Modified = {2010-09-01}
 }
 
 @techreport{ZMQTHEORY,
-title = {ØMQ: The Theoretical Foundation},
+title = {\oslash MQ: The Theoretical Foundation},
 author = {Sústrik, M},
 year = {2011},
 institution = {250bpm},
