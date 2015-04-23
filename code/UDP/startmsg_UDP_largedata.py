@@ -25,7 +25,7 @@ ser.flushOutput()
 testID = 'X'
 while(lastID != testID):
 	send.sendto(testID, (SEND_IP, SEND_PORT)) #UDP send
-	send.send(testID) #TCP send
+	#send.send(testID) #TCP send
 	lastID = ser.read(1)
 
 #print header for output file
