@@ -12,7 +12,7 @@ receive.bind((REC_IP, REC_PORT))
 
 while True:
 	data, addr = receive.recvfrom(65010) # buffer size is 1024 bytes
-	#ser.write(data[-1:])
+	ser.write(data[-1:])
 	print 'write ', data[-1:]
 
 
