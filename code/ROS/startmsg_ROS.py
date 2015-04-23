@@ -8,8 +8,8 @@ import time
 import random
 
 rospy.init_node('startmsg', anonymous=True)
-pub = rospy.Publisher('link1', String, queue_size=10)
-rate = rospy.Rate(10)
+pub = rospy.Publisher('link1', String, queue_size=None)
+rate = rospy.Rate(100)
 
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=2) #USB Serial for response
 ser.flushInput()
@@ -21,13 +21,13 @@ def talker():
     #test message code
     testID = 'X'
     while(lastID != testID):
-	print 'sending testid'
+	#print 'sending testid'
 	pub.publish(testID)
 	lastID = ser.read(1)
 
 
 
-    for i in range (1, 11):
+    for i in range (1, 10001):
 	uID = str(random.randint(0,9))
 	while(uID == lastID):
 		uID = str(random.randint(0,9))

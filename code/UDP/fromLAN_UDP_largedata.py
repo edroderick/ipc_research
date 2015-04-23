@@ -12,7 +12,7 @@ send = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP to 2nd internal pr
 receive.bind((REC_IP, REC_PORT))
 
 while True:
-	data, addr = receive.recvfrom(1024) # buffer size is 1024 bytes
+	data, addr = receive.recvfrom(65550) # buffer size is 1024 bytes
 	send.sendto(data, (SEND_IP, SEND_PORT))
 	print data
 
