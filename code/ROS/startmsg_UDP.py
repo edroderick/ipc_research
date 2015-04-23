@@ -7,7 +7,7 @@ import serial
 from datetime import datetime
 
 #Set IP addresses
-SEND_IP = "192.168.1.245"	#static IP of raspberry pi
+SEND_IP = "192.168.1.247"	#static IP of raspberry pi
 #SEND_IP = "127.0.0.1"		#for testing purposes on same computer
 SEND_PORT = 5005
 

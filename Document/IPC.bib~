@@ -33,7 +33,7 @@ Date-Modified = {2010-09-01}
 }
 
 @techreport{ZMQTHEORY,
-title = {\oslash MQ: The Theoretical Foundation},
+title = {ØMQ: The Theoretical Foundation},
 author = {Sústrik, M},
 year = {2011},
 institution = {250bpm},
@@ -70,3 +70,62 @@ month={April},
 pages={300-303}, 
 keywords={multicast communication;packet radio networks;transmitting antennas;wireless LAN;802.11N heterogeneous wireless local area network;UDP packet traces;multicast transmission;packet losses;simplified Gilbert model;space diversity;transmit antennas;Aggregates;IEEE 802.11n Standard;Receivers;Transmitting antennas;Wireless communication;802.11n;MIMO;space diversity;spatial correlation;spatial expansion;wireless multicast}, 
 ISSN={2157-8672},}
+
+@ARTICLE{RAM, 
+author={Dantam, N.T. and Lofaro, D.M. and Hereid, A. and Oh, P.Y. and Ames, A.D. and Stilman, M.}, 
+journal={Robotics Automation Magazine, IEEE}, 
+title={The Ach Library: A New Framework for Real-Time Communication}, 
+year={2015}, 
+month={March}, 
+volume={22}, 
+number={1}, 
+pages={76-85}, 
+keywords={control engineering computing;humanoid robots;software libraries;Ach library;IPC library;humanoid robot;interprocess communication library;multiprocess software design;real-time communication;Disasters;Emergency services;Mobile robots;Real-time systems;Safety;Software development}, 
+doi={10.1109/MRA.2014.2356937}, 
+ISSN={1070-9932},}
+
+@INPROCEEDINGS{HUBO2, 
+author={Grey, M.X. and Dantam, N. and Lofaro, D.M. and Bobick, A. and Egerstedt, M. and Oh, P. and Stilman, M.}, 
+booktitle={Technologies for Practical Robot Applications (TePRA), 2013 IEEE International Conference on}, 
+title={Multi-process control software for HUBO2 Plus robot}, 
+year={2013}, 
+month={April}, 
+pages={1-6}, 
+keywords={control engineering computing;humanoid robots;software architecture;software reliability;HUBO2 plus robot;human-oriented environments;humanoid robot software development;humanoid robots;low-latency interprocess communication protocol;multiprocess control software;software architecture;software reliability;Hardware;Manipulators;Real-time systems;Reliability;Runtime;User interfaces}, 
+doi={10.1109/TePRA.2013.6556374}, 
+ISSN={2325-0526},}
+
+@INPROCEEDINGS{SEAR, 
+author={Harris, A.C. and Conrad, J.M.}, 
+booktitle={Southeastcon, 2013 Proceedings of IEEE}, 
+title={Improving and designing sensors for the Simulation Environment for Autonomous Robots (SEAR)}, 
+year={2013}, 
+month={April}, 
+pages={1-5}, 
+keywords={control engineering computing;digital simulation;middleware;mobile robots;operating systems (computers);optical radar;sensors;3D capabilities;Java;LIDAR;SEAR;TCP messages;UDP messages;compass sensor;control robotics simulations;light detection-and-ranging class;magnetic declination calculations;middleware;platform agnostic 3D robotics simulator;robot latitude;robot longitude;robot operating system;sensor design;sensor improvement;simulation environment-for-autonomous robots;Compass;Laser radar;Magnetic sensors;Magnetometers;Robot sensing systems;Environment;Java;LIDAR;Middleware;MyRobotLab;ROS;Robot Operating System;Robotics;Simulation;Simulator;Ultrasonic}, 
+doi={10.1109/SECON.2013.6567449}, 
+ISSN={1091-0050},}
+
+@INPROCEEDINGS{IPCS, 
+author={Shakhimardanov, Azamat and Hochgeschwender, Nico and Reckhaus, Michael and Kraetzschmar, Gerhard K.}, 
+booktitle={Intelligent Robots and Systems (IROS), 2011 IEEE/RSJ International Conference on}, 
+title={Analysis of software connectors in robotics}, 
+year={2011}, 
+month={Sept}, 
+pages={1030-1035}, 
+keywords={Periodic structures;Robots;Software}, 
+doi={10.1109/IROS.2011.6095183}, 
+ISSN={2153-0858},}
+
+@ARTICLE{6213236, 
+author={Cousins, S.}, 
+journal={Robotics Automation Magazine, IEEE}, 
+title={Is ROS Good for Robotics? [ROS Topics]}, 
+year={2012}, 
+month={June}, 
+volume={19}, 
+number={2}, 
+pages={13-14}, 
+keywords={Open source software;Operating systems;Robot sensing systems;Service robots}, 
+doi={10.1109/MRA.2012.2193935}, 
+ISSN={1070-9932},}
