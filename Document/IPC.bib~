@@ -23,7 +23,7 @@ doi={10.1109/MRA.2013.2255491},
 ISSN={1070-9932},}
 
 @techreport{MULTITHREADZMQ,
-title = {Multithreaded Magic with ØMQ},
+title = {Multithreaded Magic with ZMQ},
 author = {Hintjens, P and Sustrik, M},
 year = {2010},
 institution = {iMatrix Corporation},
@@ -71,7 +71,7 @@ pages={300-303},
 keywords={multicast communication;packet radio networks;transmitting antennas;wireless LAN;802.11N heterogeneous wireless local area network;UDP packet traces;multicast transmission;packet losses;simplified Gilbert model;space diversity;transmit antennas;Aggregates;IEEE 802.11n Standard;Receivers;Transmitting antennas;Wireless communication;802.11n;MIMO;space diversity;spatial correlation;spatial expansion;wireless multicast}, 
 ISSN={2157-8672},}
 
-@ARTICLE{RAM, 
+@ARTICLE{ACHLIBRARY, 
 author={Dantam, N.T. and Lofaro, D.M. and Hereid, A. and Oh, P.Y. and Ames, A.D. and Stilman, M.}, 
 journal={Robotics Automation Magazine, IEEE}, 
 title={The Ach Library: A New Framework for Real-Time Communication}, 
@@ -83,17 +83,6 @@ pages={76-85},
 keywords={control engineering computing;humanoid robots;software libraries;Ach library;IPC library;humanoid robot;interprocess communication library;multiprocess software design;real-time communication;Disasters;Emergency services;Mobile robots;Real-time systems;Safety;Software development}, 
 doi={10.1109/MRA.2014.2356937}, 
 ISSN={1070-9932},}
-
-@INPROCEEDINGS{HUBO2, 
-author={Grey, M.X. and Dantam, N. and Lofaro, D.M. and Bobick, A. and Egerstedt, M. and Oh, P. and Stilman, M.}, 
-booktitle={Technologies for Practical Robot Applications (TePRA), 2013 IEEE International Conference on}, 
-title={Multi-process control software for HUBO2 Plus robot}, 
-year={2013}, 
-month={April}, 
-pages={1-6}, 
-keywords={control engineering computing;humanoid robots;software architecture;software reliability;HUBO2 plus robot;human-oriented environments;humanoid robot software development;humanoid robots;low-latency interprocess communication protocol;multiprocess control software;software architecture;software reliability;Hardware;Manipulators;Real-time systems;Reliability;Runtime;User interfaces}, 
-doi={10.1109/TePRA.2013.6556374}, 
-ISSN={2325-0526},}
 
 @INPROCEEDINGS{SEAR, 
 author={Harris, A.C. and Conrad, J.M.}, 
@@ -117,7 +106,7 @@ keywords={Periodic structures;Robots;Software},
 doi={10.1109/IROS.2011.6095183}, 
 ISSN={2153-0858},}
 
-@ARTICLE{6213236, 
+@ARTICLE{ROSGOOD, 
 author={Cousins, S.}, 
 journal={Robotics Automation Magazine, IEEE}, 
 title={Is ROS Good for Robotics? [ROS Topics]}, 
@@ -129,3 +118,13 @@ pages={13-14},
 keywords={Open source software;Operating systems;Robot sensing systems;Service robots}, 
 doi={10.1109/MRA.2012.2193935}, 
 ISSN={1070-9932},}
+
+@INPROCEEDINGS{EDUROS, 
+author={Araujo, A. and Portugal, D. and Couceiro, M.S. and Rocha, R.P.}, 
+booktitle={Autonomous Robot Systems (Robotica), 2013 13th International Conference on}, 
+title={Integrating Arduino-based educational mobile robots in ROS}, 
+year={2013}, 
+month={April}, 
+pages={1-6}, 
+keywords={data analysis;educational robots;mobile robots;multi-robot systems;operating systems (computers);sensor fusion;telerobotics;Arduino controller board;Arduino-based educational mobile robots;ROS;engineering education;hardware abstraction;intuitive operation mode;multiple robots;multiple sensors;robotic operating system;teleoperation devices;Electronic publishing;Information services;Robot kinematics;Robot sensing systems;Sonar}, 
+doi={10.1109/Robotica.2013.6623520},}

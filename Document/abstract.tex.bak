@@ -1,0 +1,9 @@
+\begin{abstract}
+
+Modern robotic systems are developed as a collection of independent processes. For these processes to function together, an interprocess communication system (IPC) must be implemented. Many prebuilt systems are available and this paper presents five popular options (UDP, TCP, ZeroMQ, ACH, and ROS) as candiates for robotics. An analysis is presented for each based on communication latency and design metrics as applied to robotics. An example design is presented with analysis of the IPC selection process.
+
+\end{abstract}
+
+
+
+

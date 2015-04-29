@@ -55,7 +55,7 @@ The control of this experiment utilized UDP messages over the network and UDP me
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/udp2udp.png}
-  \caption{UDP Control Test Results}  
+  \caption{UDP Control (Link 1 and 2) Test Results}  
   \label{fig:UDP results}
 \end{figure} 
 
@@ -66,7 +66,7 @@ TCP was tested in both Link 1 and Link 2 configurations with UDP as the second l
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/tcp2udp.png}
-  \caption{TCP Link 1 Test Results}  
+  \caption{TCP Link 1, UDP Link 2 Test Results}  
   \label{fig:TCP L1 results}
 \end{figure} 
 
@@ -75,7 +75,7 @@ Differentiation arises when TCP is utilized for the Link 2 loopback transport. A
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/tcp2udp.png}
-  \caption{TCP Link 2 Test Results}  
+  \caption{UDP Link 1, TCP Link 2 Test Results}  
   \label{fig:TCP L2 results}
 \end{figure} 
 
@@ -86,14 +86,14 @@ ZeroMQ performed the slowest in both links of all the pure IPCs tested. It is ex
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/zmq2udp.png}
-  \caption{ZMQ Link 1 Test Results}  
+  \caption{ZMQ Link 1 , UDP Link 2 Test Results}  
   \label{fig:ZMQ L1 results}
 \end{figure} 
 
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/udp2zmq.png}
-  \caption{ZMQ Link 2 Test Results}  
+  \caption{UDP Link 1, ZMQ Link 2 Test Results}  
   \label{fig:ZMQ L2 results}
 \end{figure} 
 
@@ -106,28 +106,28 @@ ACH performed the fastest of all IPC methods tested. For consistency, UDP was us
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/achtest.png}
-  \caption{ACH L2 Test Results}  
+  \caption{UDP Link1, ACH Link 2 Test Results}  
   \label{fig:achresults}
 \end{figure} 
 
 \subsection{ROS Results}
 
-ROS performed the slowest of all IPC methods tested. The test of link 1 was performed by running a ROScore instance on the full computer and a publish/subscribe link built between each process in the communication path. Running the ROScore on the networked computer introduced additional latency from network communications, but freed up processing power on the SBC. This test incorporates ROS messages in both link 1 and link 2 as it is the more logical implementation for a fully networked ROS system. The additional overhead of ROS messages and the extra communications with the ROScore process substantially impacted latency. Results can be found below in Figure \ref{rosfull}.
+ROS performed the slowest of all IPC methods tested. The test of link 1 was performed by running a ROScore instance on the full computer and a publish/subscribe link built between each process in the communication path. Running the ROScore on the networked computer introduced additional latency from network communications, but freed up processing power on the SBC. This test incorporates ROS messages in both link 1 and link 2 as it is the more logical implementation for a fully networked ROS system. The additional overhead of ROS messages and the extra communications with the ROScore process substantially impacted latency. Results can be found below in Figure \ref{fig:rosfull}.
 
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/rosfull.png}
-  \caption{ROS Full Network Test Results}  
+  \caption{ROS Link 1 and Link 2 Test Results}  
   \label{fig:rosfull}
 \end{figure} 
 
-To futher test the impact of ROScore on the system. A link 2 test was established to simulate a fully contained ROS system on the SBC with UDP communications over the network. Increased latency was recorded despite the fewer messages to a remote ROScore. This indicates that for embedded sytems, the increased procressing power required to run ROScore is detrimental to the operation of the robot. Results are found below in Figure \ref{roslink2}.
+To futher test the impact of ROScore on the system. A link 2 test was established to simulate a fully contained ROS system on the SBC with UDP communications over the network. Increased latency was recorded despite the fewer messages to a remote ROScore. This indicates that for embedded sytems, the increased procressing power required to run ROScore is detrimental to the operation of the robot. Results are found below in Figure \ref{fig:roslink2}.
 
 \begin{figure}[thpb]
  \centering
  \includegraphics[width=1.0\columnwidth]{./images/roslink2.png}
-  \caption{ROS Link 2 Test Results}  
-  \label{fig:rosfull}
+  \caption{UDP Link 1, ROS Link 2 Test Results}  
+  \label{fig:roslink2}
 \end{figure} 
 
 

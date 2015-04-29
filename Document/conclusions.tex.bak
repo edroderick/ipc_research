@@ -1,0 +1,7 @@
+\section{CONCLUSIONS}
+
+Multiprocess robotics are the preferred method of structuring a modern system. The selection of a communication protocol for these processes to co-exist is a non trivial decision. In this paper, we have reviewed the latency most popular options of TCP, UDP, ZeroMQ, Shared Memory, and ROS.
+
+Tests were performed to evaluate round trip messaging time on a sample system incorporating a laptop computer, wired network connection, SBC and embedded microprocessor. The findings of the tests were applied to a functional system with detailed analysis of choices behind the evaluted ideal IPC system.
+
+The results found through this paper indicate that Shared Memory (specifically ACH) offers the most flexibility of design when implemented on a contained SBC. The ability to switch between FIFO and LIFO without loss of data is ideal for robotics. For network communications the findings support UDP as the primary messaging IPC. UDP allows for messages to be sent with minimal latency from a wide varitey of off the shelf hardware. Utilizing this with ACH allows removes the head of line blocking issue of sockets. Designing robotics with a combination of UDP and shared memory creates the optimal solution for robotics.

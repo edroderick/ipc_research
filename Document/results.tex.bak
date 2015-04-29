@@ -13,13 +13,13 @@ The use of sockets is recommended for all network communication to and from the 
   \label{fig:idealsystem}
 \end{figure*}
 
-  Processing the large amount of messages into an ACH channel is critical to ensure usability of this method. This eliminates the issues of lost messages after the sockets buffer fills and prevents data obsolescence that would occur from a robot receiving data faster than it can process it. This method can be used with both UDP and TCP. The implementation of TCP is recommended with data integrity is of critical importance. For an ideal system that favors complete data transmission over increased latency then TCP should be utilized in conjunction with ACH. Figure \ref{fig:idealsystemtcp}
+  Processing the large amount of messages into an ACH channel is critical to ensure usability of this method. This eliminates the issues of lost messages after the sockets buffer fills and prevents data obsolescence that would occur from a robot receiving data faster than it can process it. This method can be used with both UDP and TCP. The implementation of TCP is recommended with data integrity is of critical importance. For an ideal system that favors complete data transmission over increased latency then TCP should be utilized in conjunction with ACH. Figure \ref{fig:idealsystemtcp} details how an ideal system should be designed for data integrity.
 
 \begin{figure*}[tbhp]
  \centering
  \includegraphics[width=2.0\columnwidth]{./images/idealsystem_integrity.png}
   \caption{Ideal System: Data Integrity. This diagram shows how TCP and ACH IPC methods should be used for relevant system components.}
-  \label{fig:idealsystem}
+  \label{fig:idealsystemtcp}
 \end{figure*} 
 
 The remaining IPC methods discussed in this paper should be used if a specific requirement dictates a specialized approach. The latency of a ZeroMQ message is detrimental to the real time operation of a robot. The only situation in which ZeroMQ should be implemented is when the system being designed requires a complex topology of processes that need to adhere to a publish/subscribe protocol. Robots are usually developed with a central command process that communicates with subprocesses, thus eliminating the advantages of ZeroMQ. 
